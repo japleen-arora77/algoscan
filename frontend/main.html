@@ -420,7 +420,7 @@ C, D, 5</textarea>
     </section>
 
     <!-- PRACTICE LAB -->
-    <section class="practice-lab" id="practice-lab">
+    <!-- <section class="practice-lab" id="practice-lab">
         <div class="practice-lab-inner">
             <p class="eyebrow">PRACTICE LAB</p>
             <h2>Now try it yourself</h2>
@@ -460,10 +460,10 @@ C, D, 5</textarea>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- PERFORMANCE SECTION -->
-    <section class="performance" id="performance">
+    <!-- <section class="performance" id="performance">
         <div class="performance-inner">
             <p class="eyebrow">PERFORMANCE</p>
             <h2>Know the cost.</h2>
@@ -490,15 +490,99 @@ C, D, 5</textarea>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+
+    
+<section class="performance" id="performance">
+    <div class="performance-inner">
+        <p class="eyebrow">PERFORMANCE</p>
+        <h2>Know the cost.</h2>
+
+        <div class="perf-grid">
+
+            <!-- MERGE SORT -->
+            <div class="perf-card merge-card">
+                <p class="algo-number">01 / SORTING</p>
+                <h3 class="algo-name">Merge Sort</h3>
+                <p class="algo-description">
+                    Divides the array into smaller parts and merges them
+                    back in sorted order.
+                </p>
+
+                <div class="complexity-detail">
+                    <div>
+                        <p class="perf-label">TIME COMPLEXITY</p>
+                        <h4>O(n log n)</h4>
+                        <p class="perf-sub">Best, average & worst</p>
+                    </div>
+
+                    <div>
+                        <p class="perf-label">SPACE COMPLEXITY</p>
+                        <h4>O(n)</h4>
+                        <p class="perf-sub">Auxiliary memory</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRAVELLING SALESMAN PROBLEM -->
+            <div class="perf-card tsp-card">
+                <p class="algo-number">02 / OPTIMIZATION</p>
+                <h3 class="algo-name">Travelling Salesman</h3>
+                <p class="algo-description">
+                    Finds a minimum-cost tour that visits every city once
+                    and returns to the starting city.
+                </p>
+
+                <div class="complexity-detail">
+                    <div>
+                        <p class="perf-labeldj">TIME COMPLEXITY</p>
+                        <h4>O(n² 2ⁿ)</h4>
+                        <p class="perf-subdj">Dynamic Programming algorithm</p>
+                    </div>
+
+                    <div>
+                        <p class="perf-labeldj">SPACE COMPLEXITY</p>
+                        <h4>O(n 2ⁿ)</h4>
+                        <p class="perf-subdj">Dynamic Programming table</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIJKSTRA -->
+            <div class="perf-card dijkstra-card">
+                <p class="algo-number">03 / GRAPH ALGORITHM</p>
+                <h3 class="algo-name">Dijkstra's Algorithm</h3>
+                <p class="algo-description">
+                    Finds the shortest paths from a source node in a
+                    graph with non-negative edge weights.
+                </p>
+
+                <div class="complexity-detail">
+                    <div>
+                        <p class="perf-labeldj">TIME COMPLEXITY</p>
+                        <h4>O((V + E) log V)</h4>
+                        <p class="perf-subdj">With a binary min-heap</p>
+                    </div>
+
+                    <div>
+                        <p class="perf-labeldj">SPACE COMPLEXITY</p>
+                        <h4>O(V + E)</h4>
+                        <p class="perf-subdj">Adjacency list & distances</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <footer class="footer">
-        <p>
+        <!-- <p>
             Made with ❤️ by
-            <a href="https://www.linkedin.com/in/eric-lee-3b0b1a1b2/" target="_blank"
-                rel="noopener noreferrer">Eric Lee</a>
+            
         </p>
-        <div></div>
+        <div></div> -->
     </footer>
 
     <script src="main.js"></script>

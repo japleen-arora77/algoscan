@@ -639,7 +639,7 @@ h1 span {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     letter-spacing: 1.5px;
-    color: #77787c;
+    color: #2d142c;
     margin-bottom: 42px;
 }
 
@@ -651,7 +651,16 @@ h1 span {
 
 .perf-sub {
     font-size: 13px;
-    color: #77787c;
+    color: #2d142c;
+}
+.perf-labeldj {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #f8f8f6;
+}
+.perf-subdj {
+    font-size: 13px;
+    color: #f8f8f6;
 }
 
 .green-card {
@@ -1032,4 +1041,182 @@ h1 span {
 .state-chip.active {
     background: #00a8ff;
     color: #fff;
+}
+
+
+
+
+/* PERFORMANCE SECTION */
+
+.performance {
+    padding: 70px 4% 90px;
+    background: var(--bg-pop);
+    border-top: 1px solid rgba(247, 209, 177, 0.25);
+}
+
+.performance-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.performance .eyebrow {
+    color: var(--bg-pop-alt4);
+    margin-bottom: 20px;
+}
+
+.performance h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 500;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+    color: var(--text-pop);
+}
+
+/* THREE ALGORITHM CARDS */
+
+.perf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.perf-card {
+    min-width: 0;
+    padding: 28px 24px;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--bg-pop-alt4);
+}
+
+/* MERGE SORT - CREAM */
+
+.merge-card {
+    background: var(--bg-pop-alt4);
+    color: var(--bg-pop);
+    border-color: var(--bg-pop-alt4);
+}
+
+/* TSP - RED */
+
+.tsp-card {
+    background: var(--bg-pop-alt3);
+    color: var(--text-pop);
+    border-color: var(--bg-pop-alt3);
+}
+
+/* DIJKSTRA - DEEP BURGUNDY */
+
+.dijkstra-card {
+    background: var(--bg-pop-alt);
+    color: var(--text-pop);
+    border-color: var(--bg-pop-alt3);
+}
+
+/* CARD HEADER */
+
+.algo-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding-bottom: 14px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.85;
+}
+
+.algo-name {
+    font-size: clamp(23px, 2vw, 30px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    overflow-wrap: anywhere;
+}
+
+.algo-description {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    opacity: 0.9;
+    min-height: 72px;
+}
+
+/* COMPLEXITY DETAILS */
+
+.complexity-detail {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-top: 22px;
+    border-top: 2px solid currentColor;
+}
+
+.complexity-detail > div {
+    min-width: 0;
+}
+
+.perf-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.complexity-detail h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(19px, 1.8vw, 25px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+    overflow-wrap: anywhere;
+}
+
+.perf-sub {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .perf-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .performance {
+        padding: 55px 22px 65px;
+    }
+
+    .perf-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .perf-card {
+        min-height: auto;
+        padding: 25px 22px;
+    }
+
+    .algo-description {
+        min-height: auto;
+    }
+
+    .complexity-detail {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .complexity-detail h4 {
+        font-size: 18px;
+    }
 }
