@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoscope | Interactive Algorithm Studio</title>
+
+    <link rel="stylesheet" href="main.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-dot"></span>
+            algoscope
+        </a>
+
+        <div class="nav-center">
+            INTERACTIVE ALGORITHM STUDIO
+            <span id="backendStatus" aria-live="polite"
+                style="display:block;font-size:10px;letter-spacing:1px;">
+                CHECKING BACKEND…
+            </span>
+        </div>
+
+        <a href="#practice-lab" class="practice-link">
+            Practice lab <span>→</span>
+        </a>
+    </header>
+
+    <main class="hero">
+        <section class="hero-content">
+            <p class="eyebrow">ALGORITHMS, MADE VISIBLE</p>
+
+            <h1>
+                Don't just learn it.<br>
+                <span>Watch it think.</span>
+            </h1>
+
+            <p class="description">
+                Explore each decision an algorithm makes, then put your
+                understanding to work with your own data.
+            </p>
+        </section>
+
+        <div class="circle-art" aria-hidden="true">
+            <div class="circle circle-outer">
+                <div class="circle circle-middle">
+                    <div class="circle circle-inner"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="algorithms" id="algorithms">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow"></p>
+                <h2>CHOOSE AN ALGORITHM</h2>
+            </div>
+
+            <p class="section-note">
+                Your progress is saved when you switch. Come back and
+                continue exactly where you left off.
+            </p>
+        </div>
+
+        <div class="algorithm-grid">
+
+            <article class="algorithm-card active">
+                <div class="card-top">
+                    <span class="card-number">01</span>
+                    <span class="tag">DIVIDE &amp; CONQUER</span>
+                </div>
+
+                <h3>Merge Sort</h3>
+
+                <p class="card-description">
+                    Split the array into smaller pieces, sort them,
+                    then weave the pieces back together.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="complexity">O(n log n)</span>
+                    <button class="arrow-button" aria-label="Explore Merge Sort">→</button>
+                </div>
+            </article>
+
+            <article class="algorithm-card orange">
+                <div class="card-top">
+                    <span class="card-number">02</span>
+                    <span class="tag">COMBINATORIAL</span>
+                </div>
+
+                <h3>Traveling Salesperson</h3>
+
+                <p class="card-description">
+                    Explore possible routes and find the shortest
+                    round trip through every city.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="complexity">O(n!)</span>
+                    <button class="arrow-button" aria-label="Explore Traveling Salesperson">→</button>
+                </div>
+            </article>
+
+            <article class="algorithm-card purple">
+                <div class="card-top">
+                    <span class="card-number">03</span>
+                    <span class="tag">GREEDY GRAPH SEARCH</span>
+                </div>
+
+                <h3>Dijkstra’s Algorithm</h3>
+
+                <p class="card-description">
+                    Expand from the closest unvisited node to
+                    discover the shortest path.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="complexity">O((V + E) log V)</span>
+                    <button class="arrow-button" aria-label="Explore Dijkstra's Algorithm">→</button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MERGE SORT VISUALIZER -->
+    <section>
+        <section class="visualizer" id="visualizer">
+
+            <div class="vis-top">
+                <span class="vis-step">STEP <span id="stepLabel">01</span></span>
+                <span class="vis-tag">DIVIDE &amp; CONQUER</span>
+            </div>
+
+            <div class="input-label" style="margin:18px 0 8px;">ARRAY VALUES</div>
+
+            <div class="input-group" style="margin-bottom:18px;">
+                <input
+                    id="mergeArrayInput"
+                    type="text"
+                    value="8, 3, 5, 1, 9"
+                    aria-label="Merge Sort array values">
+
+                <button id="runMergeBtn" class="sort-btn" type="button">
+                    Run Merge Sort <span>→</span>
+                </button>
+            </div>
+
+            <p id="mergeStatus" class="input-hint" aria-live="polite">
+                Enter 2–20 integers separated by commas, then run the simulation.
+            </p>
+
+            <div class="tree" id="tree">
+
+                <div class="level" id="level0">
+                    <div class="arr">
+                        <span>8</span><span>3</span><span>5</span><span>1</span><span>9</span>
+                    </div>
+                </div>
+
+                <div class="level" id="level1">
+                    <div class="arr small"><span>8</span><span>3</span></div>
+                    <div class="arr small"><span>5</span><span>1</span><span>9</span></div>
+                </div>
+
+                <div class="level" id="level2">
+                    <div class="arr small"><span>8</span></div>
+                    <div class="arr small"><span>3</span></div>
+                    <div class="arr small"><span>5</span></div>
+                    <div class="arr small"><span>1</span><span>9</span></div>
+                </div>
+
+                <div class="level" id="level3">
+                    <div class="arr small sorted"><span>3</span><span>8</span></div>
+                    <div class="arr small sorted"><span>1</span><span>5</span><span>9</span></div>
+                </div>
+
+                <div class="level" id="level4">
+                    <div class="arr final">
+                        <span>1</span><span>3</span><span>5</span><span>8</span><span>9</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="vis-msg">
+                <span class="dot"></span>
+                <span id="msgText">Split at the middle</span>
+            </div>
+
+            <div class="controls">
+                <button id="playBtn" class="play-btn" type="button">▶</button>
+                <input type="range" id="progress" min="0" max="0" value="0">
+                <span id="counter">0 / 0</span>
+            </div>
+
+        </section>
+
+        <!-- TRAVELING SALESPERSON VISUALIZER -->
+        <section>
+            <section class="visualizer" id="tspVisualizer">
+
+                <div class="vis-top">
+                    <span class="vis-step">
+                        STEP <span id="tspStepLabel">01</span> /
+                        <span id="totalSteps">0</span>
+                    </span>
+
+                    <span class="tag">COMBINATORIAL • DP HELD-KARP</span>
+                </div>
+
+                <h3 class="vis-title">
+                    Traveling Salesperson
+                    <span id="tspTourTitle">• Enter graph data to calculate a tour</span>
+                </h3>
+
+                <div class="input-label" style="margin:18px 0 8px;">
+                    CITY NAMES
+                </div>
+
+                <div class="input-group" style="margin-bottom:14px;">
+                    <input
+                        id="tspCitiesInput"
+                        type="text"
+                        value="A, B, C, D"
+                        aria-label="TSP city names">
+
+                    <input
+                        id="tspStartInput"
+                        type="text"
+                        value="A"
+                        aria-label="TSP starting city"
+                        style="max-width:100px;">
+                </div>
+
+                <label class="input-label" for="tspEdgesInput">
+                    CONNECTIONS (CityA, CityB, Cost — one per line)
+                </label>
+
+                <textarea id="tspEdgesInput" rows="4"
+                    style="width:100%;box-sizing:border-box;margin-bottom:12px;">A, B, 10
+A, C, 15
+A, D, 20
+B, C, 35
+B, D, 25
+C, D, 30</textarea>
+
+                <button id="runTspBtn" class="sort-btn" type="button">
+                    Calculate Tour <span>→</span>
+                </button>
+
+                <p id="tspStatus" class="input-hint" aria-live="polite">
+                    Edit the cities or connection costs and calculate a tour.
+                </p>
+
+                <div class="row g-0">
+                    <div class="col-lg-7">
+                        <div class="graph-box">
+
+                            <svg id="graphSvg" viewBox="0 0 500 360">
+                                <line id="edge-A-B" x1="110" y1="70" x2="390" y2="70" class="edge" />
+                                <line id="edge-A-C" x1="110" y1="70" x2="110" y2="290" class="edge" />
+                                <line id="edge-A-D" x1="110" y1="70" x2="390" y2="290" class="edge" />
+                                <line id="edge-B-C" x1="390" y1="70" x2="110" y2="290" class="edge" />
+                                <line id="edge-B-D" x1="390" y1="70" x2="390" y2="290" class="edge" />
+                                <line id="edge-C-D" x1="110" y1="290" x2="390" y2="290" class="edge" />
+
+                                <text x="250" y="55" class="weight">10</text>
+                                <text x="85" y="180" class="weight">15</text>
+                                <text x="250" y="175" class="weight">20</text>
+                                <text x="260" y="185" class="weight">35</text>
+                                <text x="415" y="180" class="weight">25</text>
+                                <text x="250" y="312" class="weight">30</text>
+
+                                <g class="node" id="node-A" transform="translate(110,70)">
+                                    <circle r="32" /><text>A</text>
+                                </g>
+
+                                <g class="node" id="node-B" transform="translate(390,70)">
+                                    <circle r="32" /><text>B</text>
+                                </g>
+
+                                <g class="node" id="node-C" transform="translate(110,290)">
+                                    <circle r="32" /><text>C</text>
+                                </g>
+
+                                <g class="node" id="node-D" transform="translate(390,290)">
+                                    <circle r="32" /><text>D</text>
+                                </g>
+                            </svg>
+
+                            <div id="tourBadge" class="tour-badge d-none">
+                                Optimal Tour
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="side-panel">
+                            <p class="label">DP STATE - BEST COST SO FAR</p>
+
+                            <div id="stateBoxes" class="d-flex flex-wrap gap-2 mb-3"></div>
+
+                            <table class="table table-dark table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Mask</th>
+                                        <th>City</th>
+                                        <th>Cost</th>
+                                        <th>Prev</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dpTable"></tbody>
+                            </table>
+
+                            <div class="msg-box">
+                                <span class="dot"></span>
+                                <span id="tspMsgText">Run the simulation to see the steps.</span>
+                            </div>
+
+                            <div class="visited mt-2">
+                                Visited Mask: <span id="maskText">—</span>
+                                • Current Cost: <span id="costText">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="tspPlayBtn" class="play-btn" type="button">▶</button>
+                    <input type="range" id="tspProgress" min="0" max="0" value="0"
+                        class="form-range flex-grow-1">
+                    <span id="tspCounter">0 / 0</span>
+                </div>
+
+            </section>
+        </section>
+
+        <!-- DIJKSTRA VISUALIZER -->
+        <section class="visualizer" id="dijkstraVisualizer">
+
+            <div class="vis-top">
+                <span class="vis-step">
+                    STEP <span id="dijkstraStepLabel">01</span>
+                </span>
+                <span class="vis-tag">GREEDY GRAPH SEARCH</span>
+            </div>
+
+            <h3 class="vis-title">
+                Dijkstra’s Algorithm
+                <span>• Shortest path in a weighted graph</span>
+            </h3>
+
+            <div class="input-label" style="margin:18px 0 8px;">
+                NODE NAMES
+            </div>
+
+            <div class="input-group" style="margin-bottom:14px;">
+                <input id="dijkstraNodesInput" type="text" value="A, B, C, D"
+                    aria-label="Dijkstra node names">
+
+                <input id="dijkstraSourceInput" type="text" value="A"
+                    aria-label="Source node" style="max-width:100px;">
+
+                <input id="dijkstraDestinationInput" type="text" value="D"
+                    aria-label="Destination node" style="max-width:100px;">
+            </div>
+
+            <label class="input-label" for="dijkstraEdgesInput">
+                CONNECTIONS (NodeA, NodeB, Weight — one per line)
+            </label>
+
+            <textarea id="dijkstraEdgesInput" rows="5"
+                style="width:100%;box-sizing:border-box;margin-bottom:12px;">A, B, 4
+A, C, 1
+C, B, 2
+B, D, 1
+C, D, 5</textarea>
+
+            <button id="runDijkstraBtn" class="sort-btn" type="button">
+                Find Shortest Path <span>→</span>
+            </button>
+
+            <p id="dijkstraStatus" class="input-hint" aria-live="polite">
+                Enter graph data and run Dijkstra.
+            </p>
+
+            <div class="msg-box" style="margin-top:18px;">
+                <span class="dot"></span>
+                <span id="dijkstraMsgText">Run the simulation to see the steps.</span>
+            </div>
+
+            <div class="controls">
+                <button id="dijkstraPlayBtn" class="play-btn" type="button"
+                    aria-label="Play Dijkstra simulation">▶</button>
+
+                <input type="range" id="dijkstraProgress" min="0" max="0" value="0"
+                    class="form-range flex-grow-1"
+                    aria-label="Dijkstra simulation progress">
+
+                <span id="dijkstraCounter">0 / 0</span>
+            </div>
+
+            <div id="dijkstraResult" class="msg-box" style="margin-top:12px;"
+                aria-live="polite"></div>
+
+        </section>
+    </section>
+
+    <!-- PRACTICE LAB -->
+    <section class="practice-lab" id="practice-lab">
+        <div class="practice-lab-inner">
+            <p class="eyebrow">PRACTICE LAB</p>
+            <h2>Now try it yourself</h2>
+
+            <p class="practice-lab-sub">
+                Give the algorithm a new array. Negative values and duplicates are welcome.
+            </p>
+
+            <label class="input-label" for="practiceArrayInput">ARRAY VALUES</label>
+
+            <div class="input-group">
+                <input id="practiceArrayInput" type="text"
+                    value="38, 27, 43, 10, 9, 31"
+                    aria-label="Practice array values">
+
+                <button class="sort-btn" type="button">
+                    Sort array <span>→</span>
+                </button>
+            </div>
+
+            <p class="input-hint">2-20 integers · separate each value with a comma</p>
+
+            <div class="preview-card">
+                <div class="preview-header">
+                    <span class="preview-label">INPUT PREVIEW</span>
+                    <span class="preview-status">Waiting to run</span>
+                    <span class="item-count">6 ITEMS</span>
+                </div>
+
+                <div class="array-boxes">
+                    <div class="array-box"><span>38</span><small>0</small></div>
+                    <div class="array-box"><span>27</span><small>1</small></div>
+                    <div class="array-box"><span>43</span><small>2</small></div>
+                    <div class="array-box"><span>10</span><small>3</small></div>
+                    <div class="array-box"><span>9</span><small>4</small></div>
+                    <div class="array-box"><span>31</span><small>5</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE SECTION -->
+    <section class="performance" id="performance">
+        <div class="performance-inner">
+            <p class="eyebrow">PERFORMANCE</p>
+            <h2>Know the cost.</h2>
+
+            <div class="perf-grid">
+                <div class="perf-card">
+                    <p class="perf-label">TIME COMPLEXITY</p>
+                    <h3>O(n log n)</h3>
+                    <p class="perf-sub">Average case</p>
+                </div>
+
+                <div class="perf-card">
+                    <p class="perf-label">SPACE COMPLEXITY</p>
+                    <h3>O(n)</h3>
+                    <p class="perf-sub">Auxiliary memory</p>
+                </div>
+
+                <div class="perf-card green-card">
+                    <p class="why-tag">◉ Why n log n?</p>
+                    <p class="why-text">
+                        There are log n levels of splitting. Each level touches all n elements once
+                        while merging.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>
+            Made with ❤️ by
+            <a href="https://www.linkedin.com/in/eric-lee-3b0b1a1b2/" target="_blank"
+                rel="noopener noreferrer">Eric Lee</a>
+        </p>
+        <div></div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
